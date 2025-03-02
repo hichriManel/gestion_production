@@ -57,7 +57,7 @@ public class UserDetailImpl implements UserDetails {
     private Long themeid;
     private String userrole;
     private Permissions permissions;
-    public UserDetailImpl(Long id, String username, String email, String password, String name, boolean locked, String phone, Long themeid) {
+    public UserDetailImpl(Long id, String username, String email, String password, String name, boolean locked, String phone) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -65,7 +65,7 @@ public class UserDetailImpl implements UserDetails {
         this.name = name;
         this.locked = locked;
         this.phone = phone;
-        this.themeid = themeid;
+
         this.userrole = userrole;
 
     }
@@ -80,8 +80,7 @@ public class UserDetailImpl implements UserDetails {
                 user.getPassword(),
                 user.getName(),
                 user.isLocked(),
-                user.getPhone(),
-                user.getThemeid());
+                user.getPhone());
 
 
     }

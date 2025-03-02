@@ -19,7 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users_pus")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -48,7 +48,6 @@ public class User {
     @Size(max = 20)
     private String phone;
 
-    private Long themeid;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -96,7 +95,6 @@ public class User {
         this.setName(newUser.getName());
         this.setLocked(newUser.isLocked());
         this.setPhone(newUser.getPhone());
-        this.setThemeid(newUser.getThemeid());
         this.setImages(newUser.getImages());
 
      }

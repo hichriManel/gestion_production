@@ -120,7 +120,6 @@ public class LoginServiceImpl implements LoginService{
                         .name(userfind.get().getName())
                         .locked(userfind.get().isLocked())
                         .phone(userfind.get().getPhone())
-                        .themeid(userfind.get().getThemeid())
                         .images(userfind.get().getImages())
                         .id(userfind.get().getId())
                         .roles(getFirstRoleName(userfind.get().getRoles()))
@@ -151,7 +150,6 @@ public class LoginServiceImpl implements LoginService{
                 .name(userfind.get().getName())
                 .locked(userfind.get().isLocked())
                 .phone(userfind.get().getPhone())
-                .themeid(userfind.get().getThemeid())
                 .images(userfind.get().getImages())
                 .id(userfind.get().getId())
                 .adress(userfind.get().getAdress())
@@ -224,11 +222,6 @@ public class LoginServiceImpl implements LoginService{
         if(updatedUser.getPhone()!="")
         {
             user.setPhone(updatedUser.getPhone());
-
-        }
-        if(updatedUser.getThemeid()!=null)
-        {
-            user.setThemeid(updatedUser.getThemeid());
 
         }
         if(updatedUser.getAdress()!="")
