@@ -17,8 +17,6 @@ public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String descrption;
     private Date DefaultDate = new Date();
 

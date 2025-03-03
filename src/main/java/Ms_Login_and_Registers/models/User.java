@@ -39,14 +39,12 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    @NotBlank
-    @Size(max = 50)
-    private String name;
 
-    private boolean locked;
+
+    private boolean statut;
 
     @Size(max = 20)
-    private String phone;
+    private String parc;
 
 
     @JsonIgnore
@@ -59,9 +57,7 @@ public class User {
     @JsonManagedReference
     private Set<Roles> roles;
 
-    private String images;
 
-    private String adress;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -72,9 +68,6 @@ public class User {
     )
     @JsonManagedReference
     private Set<Permissions> permissions;
-
-
-
 
 
 
@@ -92,10 +85,8 @@ public class User {
         this.setUsername(newUser.getUsername());
         this.setEmail(newUser.getEmail());
         this.setPassword(newUser.getPassword());
-        this.setName(newUser.getName());
-        this.setLocked(newUser.isLocked());
-        this.setPhone(newUser.getPhone());
-        this.setImages(newUser.getImages());
+        this.setStatut(newUser.isStatut());
+        this.setParc(newUser.getParc());
 
      }
 }

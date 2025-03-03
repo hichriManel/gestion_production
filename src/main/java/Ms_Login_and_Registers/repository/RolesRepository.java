@@ -10,6 +10,5 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
 
     Roles findByRoles(String roles);
 
-
 /* hi */
 }

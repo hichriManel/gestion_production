@@ -23,13 +23,13 @@ public class LoginResponse {
     private String type;
     private String username;
     private String email;
-    private String name;
-    private boolean locked;
-    private String phone;
+    private String parc;
+
+
+    private boolean statut;
     private Long themeid;
     private Roles userrole;
-    private String images;
-    private String adress;
+
     private String roles;
     private Set<Permissions> permissions;
     private String password;
@@ -43,6 +43,8 @@ public class LoginResponse {
 
     public LoginResponse(String token) {
     }
+
+
 }
 
 

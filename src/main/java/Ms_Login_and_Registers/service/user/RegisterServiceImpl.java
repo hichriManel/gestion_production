@@ -46,12 +46,9 @@ public class RegisterServiceImpl implements RegisterService {
 
             user.setUsername(request.getUsername());
             user.setEmail(request.getEmail());
-            user.setName(request.getName());
-            user.setLocked(request.isLocked());
-            user.setPhone(request.getPhone());
+            user.setStatut(request.isStatut());
             user.setPassword(encoder.encode(request.getPassword()));
-            user.setImages(request.getImages());
-            user.setAdress(request.getAdress());
+            user.setParc(request.getParc());
 
 
         // Set permissions

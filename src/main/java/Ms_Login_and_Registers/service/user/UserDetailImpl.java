@@ -1,7 +1,6 @@
 package Ms_Login_and_Registers.service.user;
 
 import Ms_Login_and_Registers.models.Permissions;
-import Ms_Login_and_Registers.models.Roles;
 import Ms_Login_and_Registers.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,26 +11,27 @@ import java.util.Objects;
 
 public class UserDetailImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
+    private  String parc;
 
 
     private Long id;
 
     private String username;
 
-    public boolean isLocked() {
-        return locked;
+    public boolean isStatut() {
+        return statut;
     }
 
-    public void setLocked(boolean locked) {
-        this.locked = locked;
+    public void setStatut(boolean statut) {
+        this.statut = statut;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getParc() {
+        return parc;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setParc(String parc) {
+        this.parc = parc;
     }
 
     public Long getThemeid() {
@@ -45,28 +45,19 @@ public class UserDetailImpl implements UserDetails {
 
 
     private String email;
-
     @JsonIgnore
     private String password;
-
-    private String name;
-
     private Collection<? extends GrantedAuthority> authorities;
-    private boolean locked;
-    private String phone;
+    private boolean statut;
     private Long themeid;
-    private String userrole;
     private Permissions permissions;
-    public UserDetailImpl(Long id, String username, String email, String password, String name, boolean locked, String phone) {
+    public UserDetailImpl(Long id, String username, String email, String password, boolean statut, String parc) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.name = name;
-        this.locked = locked;
-        this.phone = phone;
-
-        this.userrole = userrole;
+        this.statut= statut;
+        this.parc = parc;
 
     }
 
@@ -78,9 +69,8 @@ public class UserDetailImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getName(),
-                user.isLocked(),
-                user.getPhone());
+                user.isStatut(),
+                user.getParc());
 
 
     }
@@ -98,9 +88,6 @@ public class UserDetailImpl implements UserDetails {
         return email;
     }
 
-    public String getName() {
-        return name;
-    }
 
     @Override
     public String getPassword() {
@@ -119,7 +106,7 @@ public class UserDetailImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
