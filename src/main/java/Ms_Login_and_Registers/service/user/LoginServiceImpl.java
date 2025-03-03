@@ -75,9 +75,9 @@ public class LoginServiceImpl implements LoginService{
                 .type(BEARER_TYPE)
                 .username(userDetails.getUsername())
                 .email(userDetails.getEmail())
-                .name(userDetails.getName())
-                .locked(userDetails.isLocked())
-                .phone(userDetails.getPhone())
+                .password(userDetails.getPassword())
+                .statut(userDetails.isStatut())
+                .parc(userDetails.getParc())
                 .themeid(userDetails.getThemeid())
                 .success(true).message("Login successful").id(userDetails.getId())
                 .build();
@@ -117,14 +117,11 @@ public class LoginServiceImpl implements LoginService{
                         .type(BEARER_TYPE)
                         .username(userfind.get().getUsername())
                         .email(userfind.get().getEmail())
-                        .name(userfind.get().getName())
-                        .locked(userfind.get().isLocked())
-                        .phone(userfind.get().getPhone())
-                        .images(userfind.get().getImages())
+                        .statut(userfind.get().isStatut())
+                        .parc(userfind.get().getParc())
                         .id(userfind.get().getId())
                         .roles(getFirstRoleName(userfind.get().getRoles()))
                         .permissions(userfind.get().getPermissions())
-                        .adress(userfind.get().getAdress())
                         .password(userfind.get().getPassword())
                         .build();
 
@@ -147,12 +144,9 @@ public class LoginServiceImpl implements LoginService{
         return LoginResponse.builder()
                 .username(userfind.get().getUsername())
                 .email(userfind.get().getEmail())
-                .name(userfind.get().getName())
-                .locked(userfind.get().isLocked())
-                .phone(userfind.get().getPhone())
-                .images(userfind.get().getImages())
+                .statut(userfind.get().isStatut())
+                .parc(userfind.get().getParc())
                 .id(userfind.get().getId())
-                .adress(userfind.get().getAdress())
                 .roles(getFirstRoleName(userfind.get().getRoles()))
                 .permissions(userfind.get().getPermissions())
                 .password(userfind.get().getPassword())
@@ -168,11 +162,7 @@ public class LoginServiceImpl implements LoginService{
             // Resolve the path to save the file
             Path path = Paths.get(uploadPath + File.separator + fileName);
 
-           if (user!=null)
-           {
-               user.setImages(fileName);
-               userRepository.save(user);
-           }
+
 
 
             // Save the file to disk
@@ -209,26 +199,14 @@ public class LoginServiceImpl implements LoginService{
             user.setEmail(updatedUser.getEmail());
 
         }
-        if(updatedUser.getName()!="")
-        {
-            user.setName(updatedUser.getName());
 
-        }
-        Boolean isLocked = updatedUser.isLocked();
+        Boolean isStatut = updatedUser.isStatut();
 
-        if(isLocked != null) {
-            user.setLocked(isLocked);
+        if(isStatut != null) {
+            user.setStatut(isStatut);
         }
-        if(updatedUser.getPhone()!="")
-        {
-            user.setPhone(updatedUser.getPhone());
 
-        }
-        if(updatedUser.getAdress()!="")
-        {
-            user.setAdress(updatedUser.getAdress());
 
-        }
 
         // Update password if provided (and encode it)
         if (updatedUser.getPassword() != null && !updatedUser.getPassword().isEmpty()) {

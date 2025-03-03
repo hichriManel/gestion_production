@@ -26,20 +26,13 @@ public class RegisterRequest {
 
     private String password;
 
-
-    private String name;
-
+    private boolean statut;
 
 
-    private boolean locked;
-
-
-    private String phone;
 
     private Long themeid;
 
-     private String images;
-    private String adress;
+     private String parc;
 
      private String roles;
     private Set<String> permissionNames;
